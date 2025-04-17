@@ -5,7 +5,7 @@ import { UserOutlined, ShoppingCartOutlined, DollarOutlined, FileTextOutlined } 
 const Dashboard: React.FC = () => {
   return (
     <div>
-      <h2 className='mb-3 pb-5'>Dashboard Overview sdfsdf</h2>
+      <h6 className='mb-3'>Dashboard Overview</h6>
       <Row gutter={[16, 16]}>
         <Col xs={24} sm={12} lg={6}>
           <Card>

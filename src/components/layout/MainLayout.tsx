@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
-import { Layout, Menu, Button, theme } from 'antd';
-import { Outlet, useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { Layout, Menu, Button, theme } from "antd";
+import { Outlet, useNavigate } from "react-router-dom";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  DashboardOutlined,
-  UserOutlined,
-  SettingOutlined,
-  TeamOutlined,
-  FileTextOutlined,
   BulbOutlined,
   BulbFilled,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
+import navConfig from "./config";
 
 const { Header, Sider, Content } = Layout;
 
@@ -23,71 +19,25 @@ const MainLayout: React.FC = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  const menuItems = [
-    {
-      key: 'dashboard',
-      icon: <DashboardOutlined />,
-      label: 'Dashboard',
-    },
-    {
-      key: 'users',
-      icon: <UserOutlined />,
-      label: 'Users',
-      children: [
-        {
-          key: 'user-list',
-          label: 'User List',
-        },
-        {
-          key: 'user-roles',
-          label: 'User Roles',
-        },
-      ],
-    },
-    {
-      key: 'content',
-      icon: <FileTextOutlined />,
-      label: 'Content',
-      children: [
-        {
-          key: 'pages',
-          label: 'Pages',
-        },
-        {
-          key: 'posts',
-          label: 'Posts',
-        },
-        {
-          key: 'media',
-          label: 'Media',
-        },
-      ],
-    },
-    {
-      key: 'team',
-      icon: <TeamOutlined />,
-      label: 'Team',
-    },
-    {
-      key: 'settings',
-      icon: <SettingOutlined />,
-      label: 'Settings',
-    },
-  ];
-
   const handleMenuClick = ({ key }: { key: string }) => {
-    navigate(`/${key}`);
+    navigate(key);
   };
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: "100vh" }}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div style={{ height: 32, margin: 16, background: 'rgba(255, 255, 255, 0.2)' }} />
+        <div
+          style={{
+            height: 32,
+            margin: 16,
+            // background: "rgba(255, 255, 255, 0.2)",
+          }}
+        />
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['dashboard']}
-          items={menuItems}
+          defaultSelectedKeys={["dashboard"]}
+          items={navConfig}
           onClick={handleMenuClick}
         />
       </Sider>
@@ -98,7 +48,7 @@ const MainLayout: React.FC = () => {
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
             onClick={() => setCollapsed(!collapsed)}
             style={{
-              fontSize: '16px',
+              fontSize: "16px",
               width: 64,
               height: 64,
             }}
@@ -108,16 +58,16 @@ const MainLayout: React.FC = () => {
             icon={isDarkMode ? <BulbFilled /> : <BulbOutlined />}
             onClick={() => setIsDarkMode(!isDarkMode)}
             style={{
-              fontSize: '16px',
+              fontSize: "16px",
               width: 64,
               height: 64,
-              float: 'right',
+              float: "right",
             }}
           />
         </Header>
         <Content
           style={{
-            margin: '24px 16px',
+            margin: "24px 16px",
             padding: 24,
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
@@ -131,4 +81,4 @@ const MainLayout: React.FC = () => {
   );
 };
 
-export default MainLayout; 
+export default MainLayout;

@@ -1,5 +1,5 @@
 @import "tailwindcss";
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -37,4 +37,4 @@ body {
 .ant-statistic-content {
   color: rgba(0, 0, 0, 0.85);
   font-size: 24px;
-}
+} */
