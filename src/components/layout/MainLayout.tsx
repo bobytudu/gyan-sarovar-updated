@@ -8,13 +8,14 @@ import {
   BulbFilled,
 } from "@ant-design/icons";
 import navConfig from "./config";
+import { useTheme } from "../../context/ThemeContext";
 
 const { Header, Sider, Content } = Layout;
 
 const MainLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const navigate = useNavigate();
+  const { theme: currentTheme, toggleTheme } = useTheme();
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -30,11 +31,10 @@ const MainLayout: React.FC = () => {
           style={{
             height: 32,
             margin: 16,
-            // background: "rgba(255, 255, 255, 0.2)",
           }}
         />
         <Menu
-          theme="dark"
+          theme={currentTheme === "dark" ? "dark" : "light"}
           mode="inline"
           defaultSelectedKeys={["dashboard"]}
           items={navConfig}
@@ -42,7 +42,13 @@ const MainLayout: React.FC = () => {
         />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }}>
+        <Header
+          style={{
+            padding: 0,
+            background: colorBgContainer,
+          }}
+          className="flex justify-between items-center"
+        >
           <Button
             type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -55,13 +61,13 @@ const MainLayout: React.FC = () => {
           />
           <Button
             type="text"
-            icon={isDarkMode ? <BulbFilled /> : <BulbOutlined />}
-            onClick={() => setIsDarkMode(!isDarkMode)}
+            icon={currentTheme === "dark" ? <BulbFilled /> : <BulbOutlined />}
+            onClick={toggleTheme}
             style={{
               fontSize: "16px",
               width: 64,
               height: 64,
-              float: "right",
+              marginRight: 16,
             }}
           />
         </Header>

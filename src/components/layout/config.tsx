@@ -28,6 +28,7 @@ import {
   SafetyOutlined,
   LineChartOutlined,
   VideoCameraOutlined,
+  SmileOutlined,
 } from "@ant-design/icons";
 
 export interface NavConfigProps {
@@ -43,6 +44,18 @@ const navConfig: NavConfigProps[] = [
     key: "dashboard",
     icon: <DashboardOutlined />,
     label: "Dashboard",
+  },
+  {
+    key: "gym",
+    icon: <SmileOutlined />,
+    label: "Gym",
+    children: [
+      {
+        label: "Users",
+        key: "gym/users",
+        icon: <UsergroupAddOutlined />,
+      },
+    ],
   },
   {
     key: "stream",
