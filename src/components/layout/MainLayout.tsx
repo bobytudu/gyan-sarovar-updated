@@ -26,7 +26,12 @@ const MainLayout: React.FC = () => {
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
+      <Sider
+        trigger={null}
+        collapsible
+        collapsed={collapsed}
+        theme={currentTheme}
+      >
         <div
           style={{
             height: 32,
@@ -34,7 +39,7 @@ const MainLayout: React.FC = () => {
           }}
         />
         <Menu
-          theme={currentTheme === "dark" ? "dark" : "light"}
+          theme={currentTheme}
           mode="inline"
           defaultSelectedKeys={["dashboard"]}
           items={navConfig}

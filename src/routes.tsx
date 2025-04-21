@@ -79,91 +79,95 @@ import UserDetail from './pages/gym/UserDetail';
 // Other Pages
 import NotFound from './pages/NotFound';
 import { Navigate } from 'react-router-dom';
+import Admin from "./pages/firebase/Admin";
 
 export const routes: RouteObject[] = [
   {
-    path: '/',
+    path: "/",
     element: <MainLayout />,
     children: [
       { index: true, element: <Navigate to="/dashboard" replace /> },
-      
+
       // Gym Routes
-      { path: 'gym/users', element: <UsersList /> },
-      { path: 'gym/users/:id', element: <UserDetail /> },
-      
+      { path: "gym/users", element: <UsersList /> },
+      { path: "gym/users/:id", element: <UserDetail /> },
+
+      //firebase
+      { path: "firebase/admin", element: <Admin /> },
+
       // Dashboard Routes
-      { path: 'dashboard', element: <Dashboard /> },
-      { path: 'dashboards/admin', element: <AdminDashboard /> },
-      { path: 'dashboards/teacher', element: <TeacherDashboard /> },
-      { path: 'dashboards/student', element: <StudentDashboard /> },
-      { path: 'dashboards/staff', element: <StaffDashboard /> },
-      
+      { path: "dashboard", element: <Dashboard /> },
+      { path: "dashboards/admin", element: <AdminDashboard /> },
+      { path: "dashboards/teacher", element: <TeacherDashboard /> },
+      { path: "dashboards/student", element: <StudentDashboard /> },
+      { path: "dashboards/staff", element: <StaffDashboard /> },
+
       // Stream Route
-      { path: 'stream', element: <StreamPage /> },
-      
+      { path: "stream", element: <StreamPage /> },
+
       // Auth Route
-      { path: 'auth', element: <Auth /> },
-      
+      { path: "auth", element: <Auth /> },
+
       // Student Routes
-      { path: 'students/directory', element: <AllStudents /> },
-      { path: 'students/profile', element: <StudentProfile /> },
-      { path: 'students/academics', element: <StudentAcademics /> },
-      { path: 'students/attendance', element: <StudentAttendance /> },
-      { path: 'students/discipline', element: <StudentDiscipline /> },
-      { path: 'students/parents', element: <StudentParents /> },
-      { path: 'students/medical', element: <StudentMedical /> },
-      { path: 'students/documents', element: <StudentDocuments /> },
-      
+      { path: "students/directory", element: <AllStudents /> },
+      { path: "students/profile", element: <StudentProfile /> },
+      { path: "students/academics", element: <StudentAcademics /> },
+      { path: "students/attendance", element: <StudentAttendance /> },
+      { path: "students/discipline", element: <StudentDiscipline /> },
+      { path: "students/parents", element: <StudentParents /> },
+      { path: "students/medical", element: <StudentMedical /> },
+      { path: "students/documents", element: <StudentDocuments /> },
+
       // Academic Routes
-      { path: 'academics/schedule', element: <ClassSchedule /> },
-      { path: 'academics/gradebook', element: <Gradebook /> },
-      { path: 'academics/reports', element: <ReportCards /> },
-      { path: 'academics/assignments', element: <Assignments /> },
-      { path: 'academics/exams/schedule', element: <ExamSchedule /> },
-      { path: 'academics/exams/results', element: <ExamResults /> },
-      { path: 'academics/registration', element: <CourseRegistration /> },
-      
+      { path: "academics/schedule", element: <ClassSchedule /> },
+      { path: "academics/gradebook", element: <Gradebook /> },
+      { path: "academics/reports", element: <ReportCards /> },
+      { path: "academics/assignments", element: <Assignments /> },
+      { path: "academics/exams/schedule", element: <ExamSchedule /> },
+      { path: "academics/exams/results", element: <ExamResults /> },
+      { path: "academics/registration", element: <CourseRegistration /> },
+
       // Teacher Routes
-      { path: 'teachers/directory', element: <TeacherDirectory /> },
-      { path: 'teachers/profile', element: <TeacherProfile /> },
-      { path: 'teachers/classes', element: <TeacherClasses /> },
-      { path: 'teachers/attendance', element: <TeacherAttendance /> },
-      { path: 'teachers/grades', element: <TeacherGrades /> },
-      { path: 'teachers/leave', element: <TeacherLeave /> },
-      { path: 'teachers/schedule', element: <TeacherSchedule /> },
-      
+      { path: "teachers/directory", element: <TeacherDirectory /> },
+      { path: "teachers/profile", element: <TeacherProfile /> },
+      { path: "teachers/classes", element: <TeacherClasses /> },
+      { path: "teachers/attendance", element: <TeacherAttendance /> },
+      { path: "teachers/grades", element: <TeacherGrades /> },
+      { path: "teachers/leave", element: <TeacherLeave /> },
+      { path: "teachers/schedule", element: <TeacherSchedule /> },
+
       // Staff Routes
-      { path: 'staff/directory', element: <StaffDirectory /> },
-      { path: 'staff/roles', element: <StaffRoles /> },
-      { path: 'staff/attendance', element: <StaffAttendance /> },
-      { path: 'staff/leave', element: <StaffLeave /> },
-      { path: 'staff/performance', element: <StaffPerformance /> },
-      
+      { path: "staff/directory", element: <StaffDirectory /> },
+      { path: "staff/roles", element: <StaffRoles /> },
+      { path: "staff/attendance", element: <StaffAttendance /> },
+      { path: "staff/leave", element: <StaffLeave /> },
+      { path: "staff/performance", element: <StaffPerformance /> },
+
       // Admin Routes
-      { path: 'admin/calendar', element: <AdminCalendar /> },
-      { path: 'admin/announcements', element: <AdminAnnouncements /> },
-      { path: 'admin/documents', element: <AdminDocuments /> },
-      { path: 'admin/fees', element: <AdminFees /> },
-      { path: 'admin/admissions', element: <AdminAdmissions /> },
-      { path: 'admin/resources', element: <AdminResources /> },
-      { path: 'admin/reports', element: <AdminReports /> },
-      
+      { path: "admin/calendar", element: <AdminCalendar /> },
+      { path: "admin/announcements", element: <AdminAnnouncements /> },
+      { path: "admin/documents", element: <AdminDocuments /> },
+      { path: "admin/fees", element: <AdminFees /> },
+      { path: "admin/admissions", element: <AdminAdmissions /> },
+      { path: "admin/resources", element: <AdminResources /> },
+      { path: "admin/reports", element: <AdminReports /> },
+
       // Communication Routes
-      { path: 'communication/messages', element: <Messages /> },
-      { path: 'communication/notices', element: <NoticeBoard /> },
-      { path: 'communication/parent-portal', element: <ParentPortal /> },
-      { path: 'communication/events', element: <Events /> },
-      { path: 'communication/newsletter', element: <Newsletter /> },
-      
+      { path: "communication/messages", element: <Messages /> },
+      { path: "communication/notices", element: <NoticeBoard /> },
+      { path: "communication/parent-portal", element: <ParentPortal /> },
+      { path: "communication/events", element: <Events /> },
+      { path: "communication/newsletter", element: <Newsletter /> },
+
       // Settings Routes
-      { path: 'settings/academic-year', element: <AcademicYear /> },
-      { path: 'settings/classes', element: <ClassManagement /> },
-      { path: 'settings/subjects', element: <SubjectManagement /> },
-      { path: 'settings/roles', element: <UserRoles /> },
-      { path: 'settings/system', element: <SystemSettings /> },
-      
+      { path: "settings/academic-year", element: <AcademicYear /> },
+      { path: "settings/classes", element: <ClassManagement /> },
+      { path: "settings/subjects", element: <SubjectManagement /> },
+      { path: "settings/roles", element: <UserRoles /> },
+      { path: "settings/system", element: <SystemSettings /> },
+
       // 404 Route
-      { path: '*', element: <NotFound /> },
+      { path: "*", element: <NotFound /> },
     ],
   },
 ];

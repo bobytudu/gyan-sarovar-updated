@@ -91,122 +91,134 @@ const CreateUserForm = ({ onSuccess, initialData }: CreateUserFormProps) => {
     <Form
       layout="vertical"
       onFinish={handleSubmit(onSubmit)}
-      className="pt-4 grid grid-cols-1 md:grid-cols-2 gap-4"
+      className="w-full"
     >
-      <Form.Item
-        label="Name"
-        validateStatus={errors.name ? "error" : ""}
-        help={`${errors.name?.message || ""}`}
-      >
-        <Controller
-          name="name"
-          control={control}
-          render={({ field }) => <Input {...field} />}
-        />
-      </Form.Item>
-
-      <Form.Item
-        label="Email"
-        validateStatus={errors.email ? "error" : ""}
-        help={`${errors.email?.message || ""}`}
-      >
-        <Controller
-          name="email"
-          control={control}
-          render={({ field }) => <Input {...field} />}
-        />
-      </Form.Item>
-
-      <Form.Item
-        label="Phone"
-        validateStatus={errors.phone ? "error" : ""}
-        help={`${errors.phone?.message || ""}`}
-      >
-        <Controller
-          name="phone"
-          control={control}
-          render={({ field }) => <Input {...field} />}
-        />
-      </Form.Item>
-
-      <Form.Item
-        label="Payment Amount"
-        validateStatus={errors.paymentAmount ? "error" : ""}
-        help={`${errors.paymentAmount?.message || ""}`}
-      >
-        <Controller
-          name="paymentAmount"
-          control={control}
-          render={({ field }) => (
-            <InputNumber
-              {...field}
-              prefix="$"
-              style={{ width: "100%" }}
-              precision={2}
-            />
-          )}
-        />
-      </Form.Item>
-
-      <Form.Item
-        label="Subscription Start Date"
-        validateStatus={errors.subscriptionStart ? "error" : ""}
-        help={`${errors.subscriptionStart?.message || ""}`}
-      >
-        <Controller
-          name="subscriptionStart"
-          control={control}
-          render={({ field }) => (
-            <DatePicker
-              {...field}
-              style={{ width: "100%" }}
-              value={field.value ? dayjs(field.value) : null}
-            />
-          )}
-        />
-      </Form.Item>
-
-      <Form.Item
-        label="Subscription End Date"
-        validateStatus={errors.subscriptionEnd ? "error" : ""}
-        help={`${errors.subscriptionEnd?.message || ""}`}
-      >
-        <Controller
-          name="subscriptionEnd"
-          control={control}
-          render={({ field }) => (
-            <DatePicker
-              {...field}
-              style={{ width: "100%" }}
-              value={field.value ? dayjs(field.value) : null}
-            />
-          )}
-        />
-      </Form.Item>
-
-      <Form.Item
-        label="Address"
-        validateStatus={errors.address ? "error" : ""}
-        help={`${errors.address?.message || ""}`}
-        className="md:col-span-2"
-      >
-        <Controller
-          name="address"
-          control={control}
-          render={({ field }) => <Input.TextArea {...field} rows={3} />}
-        />
-      </Form.Item>
-
-      <Form.Item className="mb-0 flex justify-end gap-2 md:col-span-2">
-        <Button onClick={() => onSuccess()} className="mr-2">
-          Cancel
-        </Button>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+        {/* Personal Information Section */}
+        <div className="md:col-span-2">
+          <h2 className="text-lg font-semibold mb-4">Personal Information</h2>
+        </div>
+        <Form.Item
+          label="Name"
+          validateStatus={errors.name ? "error" : ""}
+          help={`${errors.name?.message || ""}`}
+          className="mb-2"
+        >
+          <Controller
+            name="name"
+            control={control}
+            render={({ field }) => <Input {...field} />}
+          />
+        </Form.Item>
+        <Form.Item
+          label="Email"
+          validateStatus={errors.email ? "error" : ""}
+          help={`${errors.email?.message || ""}`}
+          className="mb-2"
+        >
+          <Controller
+            name="email"
+            control={control}
+            render={({ field }) => <Input {...field} />}
+          />
+        </Form.Item>
+        <Form.Item
+          label="Phone"
+          validateStatus={errors.phone ? "error" : ""}
+          help={`${errors.phone?.message || ""}`}
+          className="mb-2"
+        >
+          <Controller
+            name="phone"
+            control={control}
+            render={({ field }) => <Input {...field} />}
+          />
+        </Form.Item>
+        <Form.Item
+          label="Address"
+          validateStatus={errors.address ? "error" : ""}
+          help={`${errors.address?.message || ""}`}
+          className="mb-2"
+        >
+          <Controller
+            name="address"
+            control={control}
+            render={({ field }) => <Input {...field} />}
+          />
+        </Form.Item>
+        {/* Subscription Details Section */}
+        <div className="md:col-span-2 mt-6">
+          <h2 className="text-lg font-semibold mb-4">Subscription Details</h2>
+        </div>
+        <Form.Item
+          label="Payment Amount"
+          validateStatus={errors.paymentAmount ? "error" : ""}
+          help={`${errors.paymentAmount?.message || ""}`}
+          className="mb-2"
+        >
+          <Controller
+            name="paymentAmount"
+            control={control}
+            render={({ field }) => (
+              <InputNumber
+                {...field}
+                prefix="$"
+                style={{ width: "100%" }}
+                precision={2}
+              />
+            )}
+          />
+        </Form.Item>
+        <div className="hidden md:block" /> {/* Spacer for grid alignment */}
+        <Form.Item
+          label="Subscription Start Date"
+          validateStatus={errors.subscriptionStart ? "error" : ""}
+          help={`${errors.subscriptionStart?.message || ""}`}
+          className="mb-2"
+        >
+          <Controller
+            name="subscriptionStart"
+            control={control}
+            render={({ field }) => (
+              <DatePicker
+                {...field}
+                style={{ width: "100%" }}
+                value={field.value ? dayjs(field.value) : null}
+              />
+            )}
+          />
+        </Form.Item>
+        <Form.Item
+          label="Subscription End Date"
+          validateStatus={errors.subscriptionEnd ? "error" : ""}
+          help={`${errors.subscriptionEnd?.message || ""}`}
+          className="mb-2"
+        >
+          <Controller
+            name="subscriptionEnd"
+            control={control}
+            render={({ field }) => (
+              <DatePicker
+                {...field}
+                style={{ width: "100%" }}
+                value={field.value ? dayjs(field.value) : null}
+              />
+            )}
+          />
+        </Form.Item>
+        {/* Action Buttons */}
+        <div className="md:col-span-2 flex justify-end gap-2 mt-6">
+          <Button onClick={() => onSuccess()} className="mr-2">
+            Cancel
+          </Button>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </div>
+      </div>
     </Form>
   );
 };
 
 export default CreateUserForm;
+

@@ -1,8 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
+/* :root {
   --background-color: #ffffff;
   --text-color: #000000;
 }
@@ -18,6 +16,12 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+*/ body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0px;
+}
 /* Add dark mode overrides for Ant Design components */
 .dark .ant-card {
   background-color: #1f1f1f;
@@ -39,11 +43,4 @@ body {
   background-color: #1f1f1f;
 }
 
-/* Add transition effects */
-.ant-layout,
-.ant-layout-sider,
-.ant-layout-header,
-.ant-card,
-.ant-menu {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+

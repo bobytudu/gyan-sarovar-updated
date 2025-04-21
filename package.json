@@ -17,12 +17,13 @@
     "antd": "^5.24.5",
     "chart.js": "^4.4.1",
     "dayjs": "^1.11.13",
+    "firebase": "^11.6.0",
     "react": "^19.0.0",
+    "react-chartjs-2": "^5.2.0",
     "react-csv": "^2.2.2",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.51.0",
     "react-router-dom": "^7.4.1",
-    "react-chartjs-2": "^5.2.0",
     "yup": "^1.4.0"
   },
   "devDependencies": {
@@ -45,6 +46,3 @@
   },
   "packageManager": "pnpm@10.7.0+sha512.6b865ad4b62a1d9842b61d674a393903b871d9244954f652b8842c2b553c72176b278f64c463e52d40fff8aba385c235c8c9ecf5cc7de4fd78b8bb6d49633ab6"
 }
-
-
-

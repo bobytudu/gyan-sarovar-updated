@@ -58,6 +58,18 @@ const navConfig: NavConfigProps[] = [
     ],
   },
   {
+    key: "firebase",
+    icon: <SmileOutlined />,
+    label: "Firebase",
+    children: [
+      {
+        label: "Admin",
+        key: "firebase/admin",
+        icon: <UsergroupAddOutlined />,
+      },
+    ],
+  },
+  {
     key: "stream",
     icon: <VideoCameraOutlined />,
     label: "Stream",
